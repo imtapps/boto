@@ -392,8 +392,9 @@ class S3Connection(AWSAuthConnection):
         # optional version_id and response_headers need to be added to
         # the query param list.
         extra_qp = []
-        if version_id is not None:
-            extra_qp.append("versionId=%s" % version_id)
+        # This breaks everything !!!!
+        # if version_id is not None:
+        #     extra_qp.append("versionId=%s" % version_id)
         if response_headers:
             for k, v in response_headers.items():
                 extra_qp.append("%s=%s" % (k, urllib.parse.quote(v)))
